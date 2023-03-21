@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
     <title>Verificação de Commit</title>
 </head>
 <body>
-    <form>
-        <label>Repositório</label>
-        <input type="text" id="repositorio"/><br/><br/>
-        <label>Data Inicial</label>
-        <input type="date" id="dataInicial"/><br/><br/>
-        <label>Data Final</label>
-        <input type="date" id="dataFinal"/><br/><br/>
-        <input type="submit" value="Pesquisar"/>
-    </form>
-    <div id="dados"></div>
+    <div class="formulario">
+        <div class="container">
+            <form>
+                <label>Repositório</label>
+                <input class="input-max" type="text" id="repositorio"/><br/><br/>
+                <div class="rows">
+                    <div>
+                        <label>Data Inicial</label>
+                        <input type="date" id="dataInicial"/><br/><br/>
+                    </div>
+                    <div>
+                        <label>Data Final</label>
+                        <input type="date" id="dataFinal"/><br/><br/>
+                    </div>
+                </div>
+                <input type="submit" value="Pesquisar"/>
+            </form>
+            <div id="dados"></div>
+        </div>
+    </div>
 
     <script>
         const form = document.querySelector('form');
