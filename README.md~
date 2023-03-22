@@ -1,7 +1,7 @@
 Repositório para atividade de desenvolvimento web de criar um consultador de repositórios do github.
 
-Estilizar a página e deixá-la responsiva;
-Permitir que o campo do repositório aceite o link completo(https://github.com/frankwco/loja) e faça a devida quebra para identificar o autor e o nome do repositório;
+✓ Estilizar a página e deixá-la responsiva;
+✓ Permitir que o campo do repositório aceite o link completo(https://github.com/frankwco/loja) e faça a devida quebra para identificar o autor e o nome do repositório;
 Apresente os dados em uma tabela;
 Formatar a data na tabela;
 Mostrar a quantidade de dias disponível para a realização da atividade e a quantidade de dias com commits;
