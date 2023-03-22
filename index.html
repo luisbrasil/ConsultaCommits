@@ -68,15 +68,17 @@
             const commitsPorDia = {};
             commits.forEach(element => {
                 const dataCommit = element.commit.author.date.substr(0,10);
+                const author = element.commit.author.name;
+                const comentario = element.commit.message;
                 if(commitsPorDia[dataCommit]){
                     commitsPorDia[dataCommit].quantidade++;
                 }else{
-                    commitsPorDia[dataCommit] = {quantidade:1, data:dataCommit};
+                    commitsPorDia[dataCommit] = {quantidade:1, data:dataCommit, author:author, comentario:comentario};
                 }
             });
 
             const commitsPorDiaArray = Object.keys(commitsPorDia).map(dataCommit => {
-                return {data:dataCommit, quantidade:commitsPorDia[dataCommit].quantidade}
+                return {data:dataCommit, quantidade:commitsPorDia[dataCommit].quantidade, author: commitsPorDia[dataCommit].author, message: commitsPorDia[dataCommit].comentario}
             });
 
             mostrarTela(commitsPorDiaArray)
@@ -84,11 +86,7 @@
 
         function mostrarTela(commits){
             const dados = document.querySelector("#tabela");
-            commits.forEach(element => {
-                const h1 = document.createElement("h1");
-                h1.innerHTML = element.data + " - " + element.quantidade;
-                dados.appendChild(h1);
-            });
+            criaTabela(commits)
         }
 
         function tratarUrl(url){
@@ -110,29 +108,31 @@
         }
 
         function criaTabela(dados) {
-                const tabela = document.querySelector("#tabela");
-                // Adiciona as linhas com os dados na tabela
-                dados.forEach((commit) => {
-                    var row = table.insertRow(0);
+            const tabela = document.querySelector("#tabela");
+            // Adiciona as linhas com os dados na tabela
+            dados.forEach((commit) => {
+                var row = tabela.insertRow(1);
 
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    var cell3 = row.insertCell(2);
-                    var cell4 = row.insertCell(3);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
 
-                    celulaData.textContent = commit.data;
-                    cell1.innerHTML = celulaData;
+                cell1.innerHTML = formataData(commit.data);
+                cell2.innerHTML = commit.quantidade;
+                cell3.innerHTML = commit.author;
+                cell4.innerHTML = commit.message;
 
-                    celulaQuantidade.textContent = commit.quantidade;
-                    cell2.innerHTML = celulaQuantidade;
+            });
+        }
 
-                    colunaAuthor.textContent = commit.author;
-                    cell3.innerHTML = colunaAuthor;
-
-                    colunaMessagem.textContent = commit.message;
-                    cell4.innerHTML = colunaMessagem;
-
-                });
+        function formataData(dataCommit){
+            const data = new Date('2023-03-15');
+            const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+            const dia = data.getDate().toString().padStart(2, '0');
+            const ano = data.getFullYear().toString();
+            const dataFormatada = `${mes}/${dia}/${ano}`;
+            return dataFormatada;
         }
         
     </script>
