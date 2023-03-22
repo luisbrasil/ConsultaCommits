@@ -24,6 +24,19 @@
                     </div>
                 </div>
                 <input class="button" type="submit" value="Pesquisar" />
+                <table id="tabela" class="table">
+                    <caption>Lista de Commits</caption>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Quantidade de Commits</th>
+                            <th>Comentários</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </form>
             <div id="dados"></div>
         </div>
@@ -70,7 +83,7 @@
         }
 
         function mostrarTela(commits){
-            const dados = document.querySelector("#dados");
+            const dados = document.querySelector("#tabela");
             commits.forEach(element => {
                 const h1 = document.createElement("h1");
                 h1.innerHTML = element.data + " - " + element.quantidade;
@@ -94,6 +107,32 @@
                 return usuario + "/" + repositorio;
             }
              return url;
+        }
+
+        function criaTabela(dados) {
+                const tabela = document.querySelector("#tabela");
+                // Adiciona as linhas com os dados na tabela
+                dados.forEach((commit) => {
+                    var row = table.insertRow(0);
+
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+
+                    celulaData.textContent = commit.data;
+                    cell1.innerHTML = celulaData;
+
+                    celulaQuantidade.textContent = commit.quantidade;
+                    cell2.innerHTML = celulaQuantidade;
+
+                    colunaAuthor.textContent = commit.author;
+                    cell3.innerHTML = colunaAuthor;
+
+                    colunaMessagem.textContent = commit.message;
+                    cell4.innerHTML = colunaMessagem;
+
+                });
         }
         
     </script>

@@ -7,7 +7,7 @@ body {
 
 .formulario{
     box-sizing: border-box;
-    width: 400px;
+    width: 800px;
     margin: 50px auto;
     border: 1px solid #dfdddd;
     padding: 10px;
@@ -55,6 +55,23 @@ input{
     .formulario {
         width: 100%;
     }
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+thead th {
+    width: 33%;
 }
 
 .button {
