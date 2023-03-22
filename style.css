@@ -57,7 +57,7 @@ input{
     }
 }
 
-button {
+.button {
     animation: 1.5s ease infinite alternate running shimmer;
     background: linear-gradient(90deg, #FFE27D 0%, #64E3FF 30%, #9192FF 85%);
     background-size: 200% 100%;
@@ -77,7 +77,7 @@ button {
     transition: 0.2s;
 }
 
-button svg {
+.button svg {
     left: -20px;
     opacity: 0.5;
     position: absolute;
@@ -85,16 +85,16 @@ button svg {
     transition: 0.5s cubic-bezier(0.5, -0.5, 0.5, 1.5);
 }
 
-button:hover svg {
+.button:hover svg {
     opacity: 0.8;
     transform: translateX(50px) scale(1.5);
 }
 
-button:hover {
+.button:hover {
     transform: rotate(-3deg);
 }
 
-button:active {
+.button:active {
     transform: scale(0.95) rotate(-3deg);
 }
 
